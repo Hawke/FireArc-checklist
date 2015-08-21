@@ -33,10 +33,15 @@
 \newcommand{\switch}[1]{\makebox[5.5em][l]{♦ #1}}
 \newcommand{\nowt}{\makebox[5.5em][l]{}}
 
-\setmainfont{Noto Sans}
+% Noto Sans
+\setmainfont{NotoSans-Regular.ttf}[
+BoldFont=NotoSans-Bold.ttf,
+ItalicFont=NotoSans-Italic.ttf,
+BoldItalicFont=NotoSans-BoldItalic.ttf
+]
 
 \begin{document}
-{\Huge{\fontspec{Michroma}FLIGHT DATA FILE}
+{\Huge{\fontspec{Michroma.ttf}FLIGHT DATA FILE}
 \par\vspace{3ex}
 \textbf{Prelaunch Cockpit Checklist}\par
 \par\vspace{3ex}
