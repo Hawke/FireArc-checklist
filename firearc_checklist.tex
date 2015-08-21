@@ -3,6 +3,7 @@
 \usepackage{fontspec}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{enumitem}
+\usepackage{atbegshi} % Used to suppress the blank page after the 'titling page'
 
 \makeevenfoot{headings}{}{\thepage}{}
 \makeoddfoot{headings}{}{\thepage}{}
@@ -41,22 +42,44 @@ BoldItalicFont=NotoSans-BoldItalic.ttf
 ]
 
 \begin{document}
-{\Huge{\fontspec{Michroma.ttf}FLIGHT DATA FILE}
-\par\vspace{3ex}
-\textbf{Prelaunch Cockpit Checklist}\par
-\par\vspace{3ex}
-\textbf{37-2431-D \textit{FireArc}}
-\par\hrulefill
-\par\vspace{5ex}
-}
-{\LARGE \textbf{Flight Design and Dynamics Division}
-\par
-\textbf{Unofficial}
-\par
-\textbf{13 July, 3300}
-}
+%Skip the blank page after titling page
+\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+%titling page gets no header
+\begin{titlingpage}
+{\Huge
+    {\fontspec{Michroma.ttf}FLIGHT DATA FILE}
 
-\begin{picture}(50,340) \put(280,0){\hbox{\includegraphics[scale=0.3]{RogSys_LOGO1024}}} \end{picture}
+    \bigskip
+    \textbf{Prelaunch Cockpit Checklist}
+
+    \bigskip
+    \textbf{37-2431-D \textit{FireArc}}
+
+    {\Large
+    %comment next line if this becomes official.
+    \textbf{UNOFFICIAL DRAFT}
+    
+    \bigskip
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=.6\textwidth]{RogSys_LOGO1024}
+    \end{figure}
+
+    \hrulefill
+
+    \parbox[t]{.5\textwidth}{
+        \vspace{0pt}
+        \raggedright\textbf{Flight Design and Dynamics Division}
+    }\hfill
+    \parbox[t]{.4\textwidth}{
+        \vspace{0pt}
+        \begin{flushright}3300-07-13\end{flushright}
+    }
+    
+    \smallskip
+    }
+}
+\end{titlingpage}
 \newpage
 \begin{center}\begin{vplace}This page intentionally blank\end{vplace}\end{center}
 \newpage
