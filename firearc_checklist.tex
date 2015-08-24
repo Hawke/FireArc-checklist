@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{memoir}
 
+\usepackage[utf8]{inputenc}
 \usepackage{fontspec}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{enumitem}
@@ -32,7 +33,8 @@
 \newcommand{\knob}[1]{\makebox[5.5em][l]{◊ #1}}
 \newcommand{\lamp}[1]{\makebox[5.5em][l]{☼ #1}}
 \newcommand{\switch}[1]{\makebox[5.5em][l]{♦ #1}}
-\newcommand{\nowt}{\makebox[5.5em][l]{}}
+\newcommand{\guage}[1]{\makebox[5.5em][l]{\char"D83D{}\char"DCCF{} #1}}
+\newcommand{\nowt}[1]{\makebox[5.5em][l]{ #1}}
 
 % Noto Sans
 \setmainfont{NotoSans-Regular.ttf}[
@@ -131,122 +133,182 @@ APPROVED BY:
 \newpage
 \begin{center}\begin{vplace}\underline{PRESTART PROCEDURES}\end{vplace}\end{center}
 \newpage
-\noindent\makebox[\linewidth][c]{%
-\begin{minipage}{0.7\linewidth}
 \textbf{PRESTART PROCEDURES}
 
 \begin{description}
 \checkitem{SEAT SAFING}%
-{\button{CSSM}SEAT SAFE --- ON}
+{\nowt{CSSM}SEAT SAFE --- ON}
 
 \checkitem{LIGHTING}%
-{\button{CSSM}CABIN FLOOD LIGHT --- OFF}%
-{\button{CSSM}INST LIGHT --- ON}
+{\nowt{CSSM}CABIN FLOOD LIGHT --- OFF}%
+{\nowt{CSSM}INST LIGHT --- ON}
 
 \checkitem{PRIMARY BUS POWER}%
-{\knob{BATT}SELECT set to SYS1}%
-{\button{BATT}POWER --- ON}%
-{\knob{ECS}BUS SELECT set to PRI}%
-{\button{ECS}POWER --- ON}%
+{\nowt{BATT}SELECT --- SYS1}%
+{\nowt{BATT}POWER --- ON}%
+{\nowt{ECS}BUS SELECT set to PRI}%
+{\nowt{ECS}POWER --- ON}%
 {…Wait 4 sec for fault alarm, then…}%
-{\button{HMD}FAULT ACK --- PRESS}
+{\nowt{HMD}FAULT ACK --- PRESS}
 
 \checkitem{BATTERY CHARGE}%
-{\button{ECS}MAINT CUT-OFF --- OFF}%
-{\button{BATT}RECHARGE --- ON}%
-{\knob{BATT}SELECT set to SYS2}%
-{\button{BATT}POWER --- ON}%
-{\button{BATT}RECHARGE --- ON}
+{\nowt{ECS}MAINT CUT-OFF --- OFF}%
+{\nowt{ECS}AVAILABLE --- CHECK}%
+{\nowt{BATT}SELECT --- SYS1}%
+{\nowt{BATT}RECHARGE --- ON}%
+{\nowt{BATT}CHARGE LEVEL --- GREEN}%
+{\nowt{BATT}RECHARGE RATE --- GREEN}
 
 \checkitem{SECONDARY BUS POWER}%
-{\knob{ECS}BUS SELECT set to SEC}%
-{\button{ECS}POWER --- ON}%
-{\knob{ECS}DISTRIBUTION MODE set to BAL}
+{\nowt{BATT}SELECT --- SYS2}%
+{\nowt{BATT}POWER --- ON}%
+{\nowt{ECS}BUS SELECT --- SEC}%
+{\nowt{ECS}POWER --- ON}%
+{\nowt{ECS}DISTRIBUTION MODE --- BAL}
+{\nowt{BATT}RECHARGE --- ON}
+{\nowt{BATT}CHARGE LEVEL --- GREEN}%
+{\nowt{BATT}RECHARGE RATE --- GREEN}
 
 \checkitem{FUEL CELL CHARGE}%
-{\knob{FCS}CELL SELECT set to SYS1}%
-{\button{FCS}POWER --- ON}%
-{…wait for CORE TEMP rise to start, then…}%
-{\knob{FCS}CELL SELECT set to SYS2}%
-{\button{FCS}POWER --- ON}%
-{…wait for CORE TEMP rise to start}
-
-\end{description}
-\end{minipage}}
-\newpage
-\noindent\makebox[\linewidth][c]{%
-\begin{minipage}{0.7\linewidth}
-\begin{description}
+{\nowt{FCS}CELL SELECT --- SYS1}%
+{\nowt{FCS}POWER --- ON}%
+{\nowt{FCS}CORE TEMP --- RISING}%
+{\nowt{FCS}CELL SELECT --- SYS2}%
+{\nowt{FCS}POWER --- ON}%
+{\nowt{FCS}CORE TEMP --- RISING}%
 
 \checkitem{THERMAL MANAGEMENT}%
-{\button{TMS}LOOP ENABLE --- ON}%
-{\knob{TMS}LOOP SELECT set to SYS1}%
-{\button{TMS}LOOP PRESSURIZE --- ON}%
-{\switch{TMS}LOOP PUMP POWER set to ON}%
-{\knob{TMS}LOOP SELECT set to SYS2}%
-{\button{TMS}LOOP PRESSURIZE --- ON}%
-{\switch{TMS}LOOP PUMP POWER set to ON}
+{\nowt{TMS}POWER --- ON}%
+{\nowt{TMS}LOOP SELECT --- SYS1}%
+{\nowt{TMS}LOOP PRESSURIZE --- ON}%
+{\nowt{TMS}PUMP POWER --- ON}%
+{\nowt{TMS}COOLANT LEVEL --- GREEN}%
+{\nowt{TMS}COOLANT PRESSURE --- GREEN}%
+{\nowt{TMS}LOOP SELECT --- SYS2}%
+{\nowt{TMS}LOOP PRESSURIZE --- ON}%
+{\nowt{TMS}PUMP POWER --- ON}
+{\nowt{TMS}COOLANT LEVEL --- GREEN}%
+{\nowt{TMS}COOLANT PRESSURE --- GREEN}%
 
 \checkitem{STC DEPARTURE CLEARANCE}%
-{\button{COMMS}SYSTEM ENABLE --- ON}%
-{\button{COMMS}TRANSMITTER ENABLE --- ON}%
+{\nowt{COMMS}SYSTEM ENABLE --- ON}%
+{\nowt{COMMS}TRANSMITTER ENABLE --- ON}%
 {Check in with STC}%
 {…wait for STC check in acknowledge, then…}%
 {Request departure clearance from STC}%
 {…wait for STC departure clearance}
 
 \end{description}
-\end{minipage}}
-
 \newpage
 \begin{center}\begin{vplace}This page intentionally blank\end{vplace}\end{center}
 \newpage
 \begin{center}\begin{vplace}\underline{DEPARTURE PROCEDURES}\end{vplace}\end{center}
 \newpage
-\noindent\makebox[\linewidth][c]{%
-\begin{minipage}{0.7\linewidth}
-\textbf{DEPARTURE PROCEDURES}
+\textbf{DEPARTURE PREPARATION}
 
 \begin{description}
 
-\checkitem{ENGINE INITIALISE}%
-{\knob{MES}ENGINE SELECT set to ENG1}%
-{\button{MES}SYSTEM ENABLE --- ON}%
-{\button{MES}LENR ENABLE --- ON}%
-{\button{MES}CHAMBER PRE-HEATER --- ON}%
-{\button{RCM}SYSTEM ENABLE --- ON}%
-{\button{RCM}ENABLE ALL TANKS --- ON}%
-{\button{MES}FUEL SOURCE SELECT --- ON}%
-{\knob{FCS}CELL SELECT set to SYS1}%
-{\button{FCS}FUEL SOURCE SELECT --- ON}%
-{\button{FCS}REACTANT SOURCE SELECT --- ON}%
-{\knob{FCS}CELL SELECT set to SYS2}%
-{\button{FCS}FUEL SOURCE SELECT --- ON}%
-{\button{FCS}REACTANT SOURCE SELECT --- ON}%
-{Request LENR initiation from STC}%
+\checkitem{LIGHTING}%
+{\nowt{CCSM}EXT FLOOD LIGHT --- ON}
+{\nowt{CCSM}DOCK LIGHT --- ON}
+
+\checkitem{FUEL SUPPLY}%
+{\nowt{RCM}SELECT --- SYS1}%
+{\nowt{RCM}LEVEL --- CHECK}%
+{\nowt{RCM}SELECT --- SYS2}%
+{\nowt{RCM}LEVEL --- CHECK}%
+{\nowt{RCM}SELECT --- SYS3}%
+{\nowt{RCM}LEVEL --- CHECK}%
+{\nowt{RCM}SELECT --- SYS4}%
+{\nowt{RCM}LEVEL --- CHECK}%
+
+\checkitem{FUEL CELLs}%
+{\nowt{FCS}CELL SELECT --- SYS1}%
+{\nowt{FCS}FUEL SOURCE --- SET}%
+{\nowt{FCS}REACT SOURCE --- SET}%
+{\nowt{FCS}CELL SELECT --- SYS2}%
+{\nowt{FCS}FUEL SOURCE  --- SET}%
+{\nowt{FCS}REACT SOURCE --- SET}%
+
+\checkitem{HARD-MOUNT DISPLAY}%
+{\nowt{HMD}HMD --- ON}%
+{\nowt{HMD}DISPLAYS/VMS --- ACCESS}%
+{\nowt{HMD}SYSTEM POWER --- ON}%
+{\nowt{HMD}MODE --- EXTERNAL DOCK}%
+
+\checkitem{REACTOR PREP}%
+{\nowt{MES}ENGINE SELECT --- ENG1}%
+{\nowt{MES}POWER --- ON}%
+{\nowt{MES}LENR ENABLE --- ON}%
+{\nowt{MES}EM FIELD --- RISING}%
+{\nowt{MES}PRE-HEAT --- ON}%
+{\nowt{MES}CORE TEMP --- RISING}%
+{\nowt{RCM}POWER --- ON}%
+{\nowt{RCM}ENABLE ALL --- ON}%
+{\nowt{MES}FUEL SOURCE --- SET}%
+{Request LENR initiation from STC}
 {…wait for STC LENR initiation clearance}
 
-\checkitem{MAIN BUS INITIALISE}%
-{\button{MES}LENR FUEL CUT-OFF --- ON}%
-{\button{MES}LENR FUSE ENABLE - ON}%
-{\knob{ECS}BUS SELECT set to MAIN}%
-{\button{ECS}POWER --- ON}%
-{\button{ECS}MAINT CUT-OFF --- ON}
-
-\checkitem{MTS COLD GAS INITIALISE}%
-{\button{MTS}SYSTEM ENABLE --- ON}%
-{\button{MTS}FUEL SOURCE SELECT --- ON}%
-{\button{MTS}FUEL CUT-OFF VALVE --- ON}%
-{\button{MTS}FUEL INJECTOR ENABLE --- ON}%
-{\button{MTS}NOZZLE ALL ENABLE --- ON}
-
-\checkitem{NAVIGATION INITIALISE}%
-{\button{NAS}SYSTEM ENABLE --- ON}
+\checkitem{REACTOR START}%
+{\nowt{CSSM}FLASH --- ON}%
+{\nowt{MES}CORE TEMP --- CHECK ORANGE}%
+{\nowt{MES}LENR FUEL CUT-OFF --- OFF}%
+{\nowt{MES}LENR FUSE ENABLE --- ON}%
+%insert check here for reactor online status
+{\nowt{ECS}BUS SELECT --- MAIN}%
+{\nowt{ECS}POWER --- ON}%
+{\nowt{ECS}MAINT CUT-OFF --- ON}
+{\nowt{ECS}LOAD --- PRI/SEC CHECK GREEN}%
 
 \checkitem{SEAT SAFING}%
-{\knob{CSSM}FLIGHT MODE SELECT set to NORM FLIGHT}%
+{\nowt{CSSM}FLIGHT MODE SELECT set to NORM FLIGHT}%
 {Announce to STC ready to depart}
 \end{description}
-\end{minipage}}
+
+\textbf{BEFORE UNDOCK}
+
+\begin{description}
+\checkitem{MAIN THRUSTERS}%
+{\nowt{MTS}POWER --- ON}
+{\nowt{MTS}FUEL CUT-OFF --- OFF}
+{\nowt{MTS}INJCTR ENABLE --- ON}
+{\nowt{MTS}NOZZLES ALL ENABLE --- ON}
+{\nowt{MTS}COLD GAS OVERRIDE --- ON}
+\end{description}
+
+\textbf{AFTER UNDOCK}
+
+When clear of station
+
+\begin{description}
+\checkitem{RADIATORS}%
+{\nowt{TMS}RADIATOR DEPLOY --- SYS1/SYS2 DEPLOY}
+
+\checkitem{AUTOPILOT}%
+{\nowt{NAS}POWER --- ON}
+{\nowt{NAS}A/P ALLOW --- ON}
+{\nowt{NAS}PITCH HOLD --- ON}
+{\nowt{NAS}YAW HOLD --- ON}
+{\nowt{NAS}ROLL HOLD --- ON}
+
+\checkitem{LIGHTING}%
+{\nowt{CSSM}EXT FLOOD LIGHT --- OFF}
+{\nowt{CSSM}DOCK LIGHT --- OFF}
+{\nowt{CSSM}NAV/FORM --- ON}
+
+\end{description}
+
+When clear of station
+
+\begin{description}
+\checkitem{VASIMR STARTUP}%
+{\nowt{MTS}SUPER-CNDCTR --- ON}
+{\nowt{MTS}EM SHIELD LEVEL --- ORANGE}
+{\nowt{MTS}IGNITE/PROVIDE --- HOLD 5 SEC}
+{\nowt{MTS}ICH COUPLER --- ON}
+{\nowt{MTS}COLD GAS OVRD --- OFF}
+{\nowt{MTS}MODE --- BSTR ENBL}
+
+\end{description}
 
 \end{document}
